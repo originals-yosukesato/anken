@@ -1,0 +1,86 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+.salary{
+    text-align: center;
+
+    .heading_text{
+        font-size: 32px;
+        margin-bottom: 45px;
+
+        @include m.sbp{
+            font-size: 18px;
+        }
+
+        span{
+            font-weight: bold;
+            color: v.$accent;
+        }
+    }
+
+    .salary_contents{
+        display: flex;
+        gap: 5%;
+        justify-content: center;
+        margin-bottom: 115px;
+
+        @include m.bp{
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        @include m.sbp{
+            margin-bottom: 60px;
+        }
+        
+        .salary_content{
+            position: relative;
+            width: 50%;
+            color: v.$main;
+            background-color: v.$accent;
+            border-radius: 10px;
+            padding: 50px 40px;
+
+            @include m.bp{
+                width: 100%;
+                padding: 25px 20px;
+            }
+
+            .salary_heading{
+                font-size: 32px;
+                font-weight: bold;
+                padding-bottom: 10px;
+                margin-bottom: 50px;
+                border-bottom: 2px solid v.$point;
+
+                @include m.sbp{
+                    font-size: 20px;
+                    margin-bottom: 25px;
+                }
+            }
+            p{
+                font-size: 20px;
+                width:80%;
+                padding-left: 25px;
+
+                @include m.sbp{
+                    font-size: 14px;
+
+                }
+            }
+
+            img{
+                position: absolute;
+                width: 95px;
+                right: 30px;
+                bottom: 30px;
+
+                @include m.sbp{
+                    width: 50px;
+                    bottom: 15px;
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+.about {
+	background-color: v.$sec_b;
+	padding: 110px 0;
+	box-sizing: border-box;
+	scroll-margin-top: -20px;
+
+	@include m.sbp{
+		padding: 45px 0;
+	}
+	.about_contents {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		@include m.bp{
+			flex-direction: column;
+		}
+		img {
+			width: 50%;
+			margin-right: 50px;
+			border: 2px solid v.$accent;
+			border-radius: 0 100px 0 100px;
+			object-fit: cover;
+
+			@include m.bp{
+				width: 100%;
+			}
+		}
+		.about_text {
+			width: 50%;
+			text-align: left;
+			line-height: 2em;
+
+			@include m.bp{
+				width: 100%;
+				margin-top: 30px;
+			}
+			p {
+				font-size: 18px;
+				// margin-bottom: 50px;
+
+				@include m.sbp{
+					font-size: 14px;
+				}
+			}
+			span {
+				color: v.$accent;
+				font-weight: bold;
+			}
+		}
+	}
+}

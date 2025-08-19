@@ -1,0 +1,24 @@
+@use "mixin" as m;
+
+//カラーコード
+$main: #fff;
+$accent: #1E79B5;
+$point: #FFC93C;
+$CTA: #22C755;
+$sec_b: #F5FBFF;
+$font: #464547;
+
+
+// フォントサイズ
+$site-title: 250px;
+$sub-title: 64px;
+$sub-title-span: 15px;
+$sec_title: 40px;
+
+// 左右余白
+$pc-spase: 0 100px;
+$tab_spase: 0 32px;
+$sp-spase: 0 15px;
+
+//
+$transition-ease: cubic-bezier(0.165, 0.84, 0.44, 1);

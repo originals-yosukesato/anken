@@ -1,0 +1,120 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+.cta {
+  text-align: center;
+  margin-bottom: 110px;
+
+  @include m.bp{
+    display: none;
+  }
+  .container {
+    .cta_inner {
+      border: 10px solid v.$point;
+      border-radius: 30px;
+      padding: 40px 50px;
+      line-height: 2.4;
+	
+      .sec_title {
+
+        font-size: clamp(16px, 2vw, 40px);
+        font-weight: bold;
+      }
+      .cta_contents {
+
+        .cta_content {
+
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          img {
+            width: 20%;
+            object-fit: contain;
+            margin: 0 20px;
+          }
+          .cta_button {
+
+            .cta_line {
+              display: inline-block;
+              font-size: clamp(16px, 2vw, 40px);
+              font-weight: bold;
+              background-color: v.$CTA;
+			  color: v.$main;
+			  border-radius: 10px;
+              padding: 15px 60px;
+              margin: 20px 0;
+              transition: all 0.2s ease-in-out;
+
+              &:hover{
+                background-color: #FF4E6F;
+                transform: translateY(-5px);
+              }
+            }
+            p {
+              font-size: clamp(16px, 2vw, 40px);
+              font-weight: bold;
+            }
+            .attention {
+              font-size: 14px;
+			  line-height: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// タブレット〜スマホ用CTA
+
+.cta_contents_sp{
+  display: none;
+  width: 100%;
+  margin: 50px auto;
+  padding: 65px 0px;
+  border: 10px solid v.$point;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+
+  @include m.bp{
+    display: block;
+  }
+
+  @include m.sbp{
+    font-size: 22px;
+  }
+  .cta_line {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: v.$CTA;
+    color: v.$main;
+    border-radius: 10px;
+    padding: 15px 60px;
+    margin: 20px 0;
+    transition: all 0.2s ease-in-out;
+
+    @include m.sbp{
+      font-size: 18px;
+      padding: 15px 30px;
+    }
+
+    &:hover{
+      background-color: #FF4E6F;
+      transform: translateY(-5px);
+    }
+  }
+
+  img{
+    margin: 0 auto;
+    width: 40%;
+    padding: 25px 0;
+  }
+
+  .attention {
+    font-size: 12px;
+  }
+}

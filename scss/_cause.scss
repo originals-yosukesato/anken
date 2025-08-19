@@ -1,0 +1,90 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+.cause {
+  margin-top: 110px;
+  scroll-margin-top: 90px;
+
+  @include m.sbp {
+    margin-top: 60px;
+  }
+  .cause_contents {
+    .cause_content {
+      background-color: v.$sec_b;
+      height: 260px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 4%;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+      @include m.bp {
+        flex-direction: column;
+        height: auto;
+        padding: 35px 0;
+      }
+      .cause_img {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include m.bp {
+          width: 40%;
+        }
+        img {
+          width: 60%;
+
+          @include m.bp {
+            width: 100%;
+          }
+        }
+      }
+      .cause_text {
+        width: 70%;
+
+        @include m.bp {
+          width: 90%;
+        }
+        .cause_title {
+          font-size: clamp(16px, 5vw, 24px);
+          font-weight: bold;
+          margin-bottom: 50px;
+          display: inline-block;
+          background: linear-gradient(
+            transparent 60%,
+            rgba(249, 199, 79, 0.4) 60%
+          );
+
+          @include m.sbp {
+            font-size: 18px;
+          }
+        }
+        p {
+          font-size: 20px;
+
+          @include m.sbp {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .triangle {
+    max-width: 1300px;
+    height: 300px;
+    background: linear-gradient(to bottom, #ffffff, #ffe49d, #ffc93c);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    margin: 0 auto;
+
+    @include m.bp {
+      height: 150px;
+    }
+
+    @include m.sbp {
+      height: 100px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+
+
+$bp-tab: 1024px;
+$bp-sp: 500px;
+
+@mixin bp{
+    @media (max-width: $bp-tab){
+        @content;
+    }
+}
+
+@mixin sbp{
+    @media(max-width: $bp-sp){
+        @content;
+    }
+}
+
+

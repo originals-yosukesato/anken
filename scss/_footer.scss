@@ -1,0 +1,60 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+footer{
+    position: relative;
+    overflow-x: clip;
+    background-color: v.$accent;
+    color: v.$main;
+    text-align: center;
+    margin-top: 120px;
+
+    @include m.bp{
+        margin-top: 70px;
+    }
+
+    .logo {
+        position: absolute;
+        top: 0;
+        font-size: 120px;
+        font-weight: 700;
+        color: v.$main;
+        opacity: 0.1;
+        white-space: nowrap;
+        line-height: 100px;
+      }
+    dl{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+        width: 345px;
+        padding-top: 185px;
+
+        @include m.sbp{
+            width: 270px;
+            font-size: 12px;
+            padding-top: 285px;
+        }
+        dt{
+            width: 30%;
+            margin-bottom: 20px;
+            border-right: 1px solid v.$main;
+        }
+        dd{
+            width: 70%;
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        
+    }
+    small{
+        display: inline-block;
+        padding: 25px 0 45px;
+        font-size: 14px;
+
+        @include m.sbp{
+            font-size: 10px;
+            padding: 45px 0 25px;
+        }
+    }
+}

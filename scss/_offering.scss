@@ -1,0 +1,48 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+.offering {
+  scroll-margin-top: 90px;
+
+  .requirements {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto 150px;
+    border: 2px solid v.$accent;
+    border-radius: 10px;
+
+    @include m.bp {
+      width: 90%;
+      margin: 0 auto 60px;
+    }
+
+    dt {
+      width: 35%;
+      font-size: 20px;
+      font-weight: bold;
+      color: v.$main;
+      background-color: v.$accent;
+      padding: 20px 0px 20px 60px;
+
+      @include m.bp {
+        font-size: 14px;
+        padding: 20px 0px 20px 30px;
+      }
+    }
+
+    dd {
+      width: 65%;
+      font-size: 18px;
+      padding: 20px 0px 20px 30px;
+      border-bottom: 2px solid v.$accent;
+
+      @include m.bp {
+        font-size: 12px;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}
