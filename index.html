@@ -36,8 +36,14 @@
 	</header>
 	<main>
 		<section class="mainvisual">
-			<img src="./img/mainvisual.jpg" alt="メインビジュアル画像" class="fv">
+			<picture>
+				<source srcset="./img/mainvisual.jpg" media="(min-width: 1024px)" type="image/jpg">
+				<source srcset="./img/mainvisual_tab.jpg" media="(min-width: 768px)" type="image/jpg">
+				<source srcset="./img/mainvisual_sp.jpg" media="(max-width: 767px)" type="image/jpg">
+				<img src="./img/mainvisual.jpg">
+			  </picture>
 			<div class="logo">speed . speed . speed . speed . speed . speed . speed . speed .</div>
+		
 			<div class="container_mainvisual">
 				<div class="site_title">
 					<h1><span class="highlight big">普通免許</span>だけで<br>
@@ -53,6 +59,7 @@
 					<img class="men" src="./img/boku.png" alt="人物画像">
 				</div>
 			</div>
+	
 		</section>
 		<section class="point">
 			<div class="container">

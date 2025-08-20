@@ -49,6 +49,7 @@
           width: 90%;
         }
         .cause_title {
+			
           font-size: clamp(16px, 5vw, 24px);
           font-weight: bold;
           margin-bottom: 50px;
@@ -59,7 +60,7 @@
           );
 
           @include m.sbp {
-            font-size: 18px;
+            font-size: 15px;
           }
         }
         p {

@@ -15,261 +15,127 @@
   }
 }
 
+/* 共通：ヒーロー全体 */
 .mainvisual {
   position: relative;
   width: 100%;
-  height: 960px;
+  height: 110vh;
   overflow: hidden;
-  box-sizing: border-box;
-  @include m.bp {
-    height: calc(100svh - var(--headerH));
-  }
 
-  .fv {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
 
-  .logo {
-    position: absolute;
-    inset: auto 0 0 0; // 例：下帯ロゴなら
-    z-index: 1;
-    pointer-events: none;
+  picture{
+    img {
+      object-fit: cover;
+    }
   }
 
   .container_mainvisual {
-    position: relative;
-    z-index: 2; // 背景より前
-    height: 100%;
+    position: absolute;
+    bottom: 0px;
     display: flex;
-    align-items: flex-start; // 縦中央
-    // gap: 2rem;
-    padding-top: 0;
-    box-sizing: border-box;
+    justify-content: center;
+    padding: 0 120px;
+
+    @include m.bp {
+      padding: 0 20px;
+    }
 
     @include m.bp {
       flex-direction: column;
-      align-items: stretch;
-      padding: 20px;
-      gap: 1.5rem;
-      padding-top: 0;
-      height: 100%;
     }
   }
 
-  /* 横並びの左カラム */
+  /* 左：テキスト */
   .site_title {
-    flex: 1 1 55%; // ← 戻す（横並び安定）
+    width: 50%;
     color: v.$main;
-    line-height: 1.6;
-    padding-left: 120px; // 以前の left:120px を余白で再現
-    position: relative; // 飾り画像のabsolute基準
-    padding-top: 0;
-
-    @include m.bp {
-      text-align: left;
-      padding: 0;
-      margin-inline: auto;
-      max-width: 92%; // ← 親を全幅に
-    }
-
-    h1 {
-      width: 100%; // ← SPで全幅に
-      font-weight: 800;
-      font-size: clamp(16px, 5vw, 60px);
-      margin: var(--h1-top-gap) 0 0 0;
-      text-align: left;
-      @include m.bp {
-        margin-top: 10px;
-      }
-    }
-
-    .big {
-      font-size: clamp(24px, 6.5vw, 75px);
-      font-weight: 800;
-    }
-    .big__ {
-      font-size: clamp(24px, 6.5vw, 110px);
-      padding: 0 10px;
-    }
-
-    .highlight {
-      background: v.$point;
-      border-radius: 4px;
-      display: inline-block;
-      padding: 0 10px;
-      max-width: 472px;
-    }
-    .highlight.big {
-      padding: 10px;
-      margin-top: 10%;
-      margin-bottom: 10px;
-      position: relative;
-      display: inline-block;
-      @include m.bp {
-        margin-top: 1%;
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        left: 60%; /* 左端を基準 */
-        top: 0; /* 上端を基準 */
-        transform: translateY(-100%); /* 下端をhighlight上端に合わせる */
-        width: 50%; /* highlight 幅いっぱい */
-        aspect-ratio: 16 / 4; /* 画像比率に合わせる */
-        background: url("/img/minban.png") no-repeat left top / contain;
-        pointer-events: none;
-      }
-    }
-
-    /* 特徴リスト */
-    .features {
-      margin-top: 16px;
-      text-align: left;
-      font-size: clamp(14px, 1.8vw, 28px);
-      font-weight: 700;
-      line-height: 1.8;
-      width: 100%; // ← 常時OK。PCでも広げたいならこのまま
-
-      li {
-        position: relative;
-        padding-left: 1.3em;
-        &::before {
-          content: "✓";
-          display: inline-block;
-          //   position: absolute;
-          left: 0;
-          top: 0;
-          width: 1em;
-          color: v.$main;
-          margin-inline: auto;
-        }
-      }
-    }
-  }
-
-  /* 右カラム（人物） */
-  .person {
-    flex: 1 1 60%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding-right: 120px;
+    line-height: 1.4;
+    padding-top: 50px;
 
     @include m.bp {
       width: 100%;
-      justify-content: center; // ← SPは中央
-      padding-right: 0;
+      height: 50vh;
     }
 
-    .men {
-      display: block;
-      width: 800px;
-      height: auto;
-      object-fit: contain;
-    }
-  }
-}
+    h1 {
+      font-size: 60px;
+      font-weight: 800;
+      text-align: left;
+      line-height: 1.5;
+      padding-bottom: 35px;
 
-// .site_title > img {
-//   position: absolute;
-//   top: calc(var(--heroTopGap) + var(--headerH)); /* ← 基準位置 */
-//   left: 40%;
-//   width: 12%;
-
-//   @include m.bp {
-//     position: static;
-//     width: 40%;
-//     margin-top: 12px;
-//   }
-// }
-
-@include m.bp {
-  .mainvisual {
-    height: calc(100svh - var(--headerH)); // or 100dvh - headerH
-  }
-
-  .container_mainvisual {
-    height: 100%;
-  }
-
-  .person {
-    height: 100%;
-    display: flex;
-    align-items: flex-end; // 下端揃え
-    justify-content: center; // 横中央寄せ
-
-    .men {
-      max-width: 92vw;
-      height: min(60svh, calc(100% - (var(--heroTopGap) + var(--headerH))));
-      object-fit: contain;
-      display: block;
       @include m.bp {
-        max-width: 92vw;
-        /* ← “mainvisualの高さ” から “上余白＋下余白” を引いた残りを使う */
-        max-height: calc(100% - (var(--h1-top-gap) + var(--LM-gap)));
-        height: auto;
-        object-fit: contain;
-        display: block;
+        font-size: 40px;
+      }
+
+      .highlight {
+        background: v.$point;
+        border-radius: 2px;
+        padding: 6px 10px;
+        font-size: 80px;
+
+        @include m.bp {
+          font-size: 50px;
+        }
+
+        @include m.sbp {
+          font-size: 40px;
+        }
+      }
+      .big__ {
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 100px;
+        @include m.bp {
+          font-size: 50px;
+        }
+      }
+    }
+    .features {
+      font-size: 22px;
+
+      @include m.bp {
+        font-size: 18px;
+      }
+
+      @include m.sbp {
+        font-size: 12px;
+      }
+
+      li {
+        position: relative;
+        line-height: 2;
+        padding-left: 1.5em; 
+
+        &::before {
+          content: "✔"; /* 好きな記号 */
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: v.$main; /* ← 好きな色に */
+          font-weight: bold;
+        }
+
+
       }
     }
   }
-}
 
-@include m.bp {
-  .mainvisual {
-    height: calc(100svh - var(--headerH));
-  }
-
-  .container_mainvisual {
-    height: 100%;
-    display: flex;
-    align-items: stretch; /* 左右カラム同じ高さ */
-    gap: 1.5rem;
-  }
-
-  .site_title {
-    flex: 1 1 55%;
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-between; /* ← 上下に分散配置 */
-    padding-left: 0;
-
-    /* 上端の固定余白 */
-    &::before {
-      content: "";
-      display: block;
-      height: var(--heroTopGap);
-      flex: 0 0 auto;
-    }
-
-    /* 下端の固定余白 */
-    &::after {
-      content: "";
-      display: block;
-      height: var(--LM-gap);
-      flex: 0 0 auto;
-    }
-  }
-
+  /* 右：人物画像 */
   .person {
-    flex: 1 1 45%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end; /* .men下端＝.mainvisual下端 */
-    justify-content: center;
+    width: 50%;
+    align-items: flex-end;
+
+    @include m.bp {
+      width: 70%;
+      height: 50vh;
+      margin-left: auto;
+    }
 
     .men {
-      max-width: 92vw;
+      width: 100%;
       height: auto;
       object-fit: contain;
-      max-height: calc(100% - (var(--heroTopGap) + var(--LM-gap)));
     }
   }
 }

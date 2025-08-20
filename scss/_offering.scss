@@ -39,6 +39,7 @@
 
       @include m.bp {
         font-size: 12px;
+		padding-right: 30px;
       }
       &:last-of-type {
         border-bottom: none;
